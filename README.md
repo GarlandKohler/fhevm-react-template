@@ -19,6 +19,15 @@ This project provides a **next-generation FHEVM SDK** that makes building confid
 - **Battle Tested**: Includes real-world example applications
 - **Modular Design**: Import only what you need
 
+## 🌐 Live Demo
+
+**🎮 Try it now**: [https://fhe-futures-trading.vercel.app/](https://fhe-futures-trading.vercel.app/)
+
+**📺 Video Demo**: [Watch demonstration demo.mp4]
+**📍 Contract Address**: `0x8FC127f65f36d77e580f96e8a51cF3A7e0f3EB9c`
+
+**🔍 Etherscan**: [View on Sepolia](https://sepolia.etherscan.io/address/0x8FC127f65f36d77e580f96e8a51cF3A7e0f3EB9c)
+
 ## 🚀 Quick Start
 
 ### Installation
