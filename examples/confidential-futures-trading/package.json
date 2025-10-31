@@ -1,0 +1,25 @@
+{
+  "name": "confidential-futures-platform",
+  "version": "1.0.0",
+  "description": "Privacy-preserving futures trading platform using FHEVM SDK",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Build complete'",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fhevm",
+    "futures",
+    "trading",
+    "privacy",
+    "blockchain"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fhevm/sdk": "workspace:*",
+    "ethers": "^6.9.0",
+    "fhevmjs": "^0.5.0",
+    "express": "^4.18.2"
+  }
+}

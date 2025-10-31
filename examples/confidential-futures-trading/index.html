@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidential Futures Trading Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Confidential Futures Trading Platform</h1>
+            <p class="subtitle">Privacy-preserving derivatives trading powered by FHEVM SDK</p>
+        </header>
+
+        <!-- Wallet Connection -->
+        <div class="card">
+            <h2>Wallet Connection</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Status:</span>
+                    <span id="connectionStatus" class="value">Not Connected</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Address:</span>
+                    <span id="walletAddress" class="value">Not connected</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Network:</span>
+                    <span id="networkName" class="value">Unknown</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Balance:</span>
+                    <span id="ethBalance" class="value">0 ETH</span>
+                </div>
+            </div>
+            <button id="connectWallet" class="btn btn-primary">Connect Wallet</button>
+        </div>
+
+        <!-- Owner Section -->
+        <div id="ownerSection" class="card" style="display: none;">
+            <h2>Owner Functions</h2>
+
+            <div class="form-section">
+                <h3>Create Futures Contract</h3>
+                <input type="text" id="underlyingAsset" placeholder="Underlying asset (e.g., BTC, ETH)">
+                <button id="createContract" class="btn">Create Contract</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Set Contract Price</h3>
+                <input type="number" id="contractIdPrice" placeholder="Contract ID">
+                <input type="number" id="initialPrice" placeholder="Initial price">
+                <button id="setPrice" class="btn">Set Price</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Settle Contract</h3>
+                <input type="number" id="settleContractId" placeholder="Contract ID">
+                <input type="number" id="finalPrice" placeholder="Final price">
+                <button id="settleContract" class="btn">Settle Contract</button>
+            </div>
+        </div>
+
+        <!-- Trading Section -->
+        <div class="card">
+            <h2>Trading</h2>
+            <div class="form-section">
+                <h3>Open Position</h3>
+                <input type="number" id="tradingContractId" placeholder="Contract ID">
+                <input type="number" id="entryPrice" placeholder="Entry price">
+                <input type="number" id="tradeAmount" placeholder="Amount">
+                <input type="number" id="collateral" placeholder="Collateral">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="positionType" value="true" checked> Long
+                    </label>
+                    <label>
+                        <input type="radio" name="positionType" value="false"> Short
+                    </label>
+                </div>
+                <button id="openPosition" class="btn btn-primary">Open Position</button>
+            </div>
+        </div>
+
+        <!-- Query Section -->
+        <div class="card">
+            <h2>Query Information</h2>
+
+            <div class="form-section">
+                <h3>Query Contract</h3>
+                <input type="number" id="queryContractId" placeholder="Contract ID">
+                <button id="queryContract" class="btn">Query Contract</button>
+                <button id="refreshContracts" class="btn">Refresh All</button>
+            </div>
+
+            <div id="contractsList" class="results-section"></div>
+        </div>
+
+        <!-- Position Query -->
+        <div class="card">
+            <h2>My Positions</h2>
+            <div class="form-section">
+                <input type="number" id="positionContractId" placeholder="Contract ID">
+                <button id="queryPosition" class="btn">Query Position</button>
+            </div>
+            <div id="positionsList" class="results-section"></div>
+        </div>
+
+        <!-- Settlement Info -->
+        <div class="card">
+            <h2>Settlement Information</h2>
+            <button id="checkSettlement" class="btn">Check Settlement Time</button>
+            <div id="settlementTime" class="results-section"></div>
+        </div>
+
+        <!-- Withdrawal -->
+        <div class="card">
+            <h2>Withdrawal</h2>
+            <button id="requestWithdrawal" class="btn btn-primary">Request Withdrawal</button>
+        </div>
+
+        <!-- SDK Info -->
+        <div class="card info-card">
+            <h2>🎯 FHEVM SDK Integration</h2>
+            <p>This application demonstrates the FHEVM SDK capabilities:</p>
+            <ul>
+                <li>✓ Client initialization and wallet management</li>
+                <li>✓ Encrypted value handling with FHE</li>
+                <li>✓ Contract interaction with privacy preservation</li>
+                <li>✓ Real-time transaction monitoring</li>
+                <li>✓ Decryption with EIP-712 signatures</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Transaction Status Modal -->
+    <div id="transactionStatus" class="status-modal" style="display: none;">
+        <div class="status-content">
+            <button id="closeStatus" class="close-btn">×</button>
+            <p id="statusMessage"></p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
